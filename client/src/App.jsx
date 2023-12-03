@@ -5,52 +5,61 @@ import About from "./pages/About";
 import Signin from "./pages/Signin";
 import SignOut from "./pages/SignOut";
 import Profile from "./pages/Profile";
+import Header from "./components/Header";
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <div>
-        <Home/>
+        <Header />
+        <Home />
       </div>
     ),
   },
   {
-    path:"/about",
-    element:(
+    path: "/about",
+    element: (
       <div>
-        <About/>
+        <Header />
+        <About />
       </div>
-    )
+    ),
   },
   {
-    path:"/profile",
-    element:(
+    path: "/profile",
+    element: (
       <div>
-        <Profile/>
+        <Header />
+        <Profile />
       </div>
-    )
+    ),
   },
   {
-    path:"/sign-in",
-    element:(
+    path: "/sign-in",
+    element: (
       <div>
-        <Signin/>
+        <Header />
+        <Signin />
       </div>
-    )
+    ),
   },
   {
-    path:"/sign-out",
-    element:(
+    path: "/sign-out",
+    element: (
       <div>
-        <SignOut/>
+        <Header />
+        <SignOut />
       </div>
-    )
-  }
-
+    ),
+  },
 ]);
 
 const App = () => {
-  return <RouterProvider router={router}/>
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 };
 
 export default App;
