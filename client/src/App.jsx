@@ -6,6 +6,7 @@ import Signin from "./pages/Signin";
 import SignOut from "./pages/SignOut";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
+import Signup from "./pages/Signup";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +50,15 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <SignOut />
+      </div>
+    ),
+  },
+  {
+    path: "/signup",
+    element: (
+      <div>
+        <Header />
+        <Signup />
       </div>
     ),
   },
