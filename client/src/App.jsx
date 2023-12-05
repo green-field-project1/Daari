@@ -7,6 +7,7 @@ import SignOut from "./pages/SignOut";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Signup from "./pages/Signup";
+import PrivateRoute from "./components/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,10 +31,20 @@ const router = createBrowserRouter([
     path: "/profile",
     element: (
       <div>
-        <Header />
-        <Profile />
+        <PrivateRoute />
       </div>
     ),
+    children:[
+      {
+        path: "/profile",
+        element: (
+          <div>
+            <Header />
+            <Profile />
+          </div>
+        ),
+      },
+    ]
   },
   {
     path: "/sign-in",
