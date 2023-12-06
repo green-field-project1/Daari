@@ -7,6 +7,7 @@ import SignOut from "./pages/SignOut";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Signup from "./pages/Signup";
+import CreateListing from "./pages/CreateListing";
 import PrivateRoute from "./components/PrivateRoute";
 const router = createBrowserRouter([
   {
@@ -28,7 +29,6 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/profile",
     element: (
       <div>
         <PrivateRoute />
@@ -43,6 +43,16 @@ const router = createBrowserRouter([
             <Profile />
           </div>
         ),
+      },
+      {
+        path: "/create-listing",
+        element:(
+          <div>
+            <Header />
+            <CreateListing />
+          </div>
+        )
+    
       },
     ]
   },
