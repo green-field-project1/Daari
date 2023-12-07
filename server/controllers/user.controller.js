@@ -1,4 +1,5 @@
 const User = require("../models/user.model.js")
+const Listing = require("../models/listing.model.js")
 const { errorHandler } = require("../utils/error.js")
 const bcryptjs = require("bcryptjs")
 
@@ -31,7 +32,7 @@ const updateUser = async (req, res, next) => {
 }
 
 const deleteUser = async (req, res, next) => {
-    if(req.params.id !== req.user.id) return next(errorHandler(401,'you are not allowed to delete this account'))
+    if (req.params.id !== req.user.id) return next(errorHandler(401, 'you are not allowed to delete this account'))
     try {
         await User.findByIdAndDelete(req.user.id)
         res.clearCookie('access_token')
@@ -42,5 +43,20 @@ const deleteUser = async (req, res, next) => {
 
 }
 
+const getUserListings = async (req, res, next) => {
+    if (req.user.id === req.params.id) {
+        try {
+            const listings = await Listing.find({ userRef: req.params.id });
+            res.status(200).json(listings);
+        } catch (error) {
+            next(error);
+        }
+    } else {
+        return next(errorHandler(401, 'You are not allowed to see other users listings'));
+    }
+};
+
+
+module.exports.getUserListings = getUserListings
 module.exports.updateUser = updateUser
 module.exports.deleteUser = deleteUser
