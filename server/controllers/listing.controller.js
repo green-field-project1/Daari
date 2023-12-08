@@ -9,5 +9,22 @@ const createListing = async (req,res,next) =>{
     }
 }
 
+const deleteListing = async (req, res, next) => {
+
+  const listing = await Listing.findById(req.params.id)
+  if(!listing){
+    return next(errorHandler(404, 'Listing not found'));
+  }
+  if(req.user.id !== listing.userRef) {
+    return next(errorHandler(401, 'you are not allowed to delete this listing'));
+  }
+  try {
+    await Listing.findByIdAndDelete(req.params.id);
+    res.status(200).json('Listing has been successfully deleted')
+  } catch (error) {
+    next(error)
+  }
+}
 
 module.exports.createListing = createListing;
+module.exports.deleteListing = deleteListing;
