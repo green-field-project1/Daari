@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import CreateListing from "./pages/CreateListing";
 import PrivateRoute from "./components/PrivateRoute";
+import UpdateListing from "./pages/UpdateListing";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,15 @@ const router = createBrowserRouter([
         )
     
       },
+      {
+        path: "/update-listing/:listingID",
+        element:(
+          <div>
+            <Header />
+            <UpdateListing/>
+          </div>
+        )
+      }
     ]
   },
   {
