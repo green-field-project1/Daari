@@ -17,7 +17,7 @@ import {
 import Contact from '../components/Contact';
 
 
-export default function Listing() {
+const Listing = ()=> {
   SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -150,3 +150,5 @@ export default function Listing() {
     </main>
   );
 }
+
+export default Listing
