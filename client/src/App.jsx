@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import CreateListing from "./pages/CreateListing";
 import PrivateRoute from "./components/PrivateRoute";
 import UpdateListing from "./pages/UpdateListing";
+import Listing from "./pages/Listing";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         <PrivateRoute />
       </div>
     ),
-    children:[
+    children: [
       {
         path: "/profile",
         element: (
@@ -47,24 +48,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-listing",
-        element:(
+        element: (
           <div>
             <Header />
             <CreateListing />
           </div>
-        )
-    
+        ),
       },
       {
         path: "/update-listing/:listingID",
-        element:(
+        element: (
           <div>
             <Header />
-            <UpdateListing/>
+            <UpdateListing />
           </div>
-        )
-      }
-    ]
+        ),
+      },
+    ],
   },
   {
     path: "/sign-in",
@@ -90,6 +90,16 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Signup />
+      </div>
+    ),
+  },
+  ,
+  {
+    path: "/listing/:listingId",
+    element: (
+      <div>
+        <Header />
+        <Listing />
       </div>
     ),
   },
