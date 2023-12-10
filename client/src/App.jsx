@@ -11,6 +11,7 @@ import CreateListing from "./pages/CreateListing";
 import PrivateRoute from "./components/PrivateRoute";
 import UpdateListing from "./pages/UpdateListing";
 import Listing from "./pages/Listing";
+import Search from "./pages/Search";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -103,6 +104,15 @@ const router = createBrowserRouter([
       </div>
     ),
   },
+  {
+    path: "/search",
+    element: (
+      <div>
+        <Header />
+        <Search />
+      </div>
+    ),
+  }
 ]);
 
 const App = () => {
